@@ -29,16 +29,17 @@ def items(request):
     return HttpResponse("<h2>ITEMS IN THAT CATEGORY</h2>")
 
 
-def category(request, itemCat_name):
+def category(request, itemCat_id):
     # return HttpResponse("<h2>categorys for Item ID "+ str(itemCat_id)+" </h2>")
     # try:
     #     itemCat = ItemCategory.objects.get(pk = itemCat_id)
     # except ItemCategory.DoesNotExist:
     #     raise Http404("Album does not exists")
-    itemCat = get_object_or_404(ItemCategory, furniture_type = itemCat_name)
+    itemCat = get_object_or_404(ItemCategory, pk = itemCat_id)
 
     all_items = ItemName.objects.all().filter(itemcategory = itemCat)
     return render(request, 'items/category.html', {'all_items' : all_items})
-def item(request, itemName):
-    itemCat = get_object_or_404(ItemName, item_name = itemName)
-    
+
+def item(request, itemCatName_id, itemCat_id):
+    item = get_object_or_404(ItemName, pk = itemCatName_id)
+    return HttpResponse("<h2>WORKING</h2>")

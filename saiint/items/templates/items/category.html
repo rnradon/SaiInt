@@ -1,9 +1,12 @@
 {% if all_items %}
 
   <ul>
-    {% for items in all_items %}
-      <li> {{items.item_name}} PRICE IS- INR {{items.item_price}} /-
-    
+    {% for each_item in all_items %}
+      <!-- <li> {{each_item.item_name}} PRICE IS- INR {{each_item.item_price}} /- {{each_item.id}} {{each_item.itemcategory.id}} -->
+      <!-- category/categoryid/itemid -->
+      <li> <a href = "{% url 'items:itemURL' each_item.itemcategory.id each_item.id %}"> {{each_item.item_name}} </a>
+            PRICE IS- INR {{each_item.item_price}}
+
     {% endfor %}
   </ul>
 
