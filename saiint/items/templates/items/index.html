@@ -1,0 +1,13 @@
+{% if all_item_cat %}
+
+  <ul>
+    {% for item_cat in all_item_cat %}
+      <!-- <li> <a href = "/category/{{item_cat.id}}/"> {{item_cat.furniture_type}} </a> -->
+      <li> <a href = "{% url 'items:category' item_cat.furniture_type %}"> {{item_cat.furniture_type}} </a>
+
+    {% endfor %}
+  </ul>
+
+{% else %}
+  <h2>NO CATEGORIES</h2>
+{% endif %}

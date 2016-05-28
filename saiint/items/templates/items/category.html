@@ -1,0 +1,12 @@
+{% if all_items %}
+
+  <ul>
+    {% for items in all_items %}
+      <li> {{items.item_name}} PRICE IS- INR {{items.item_price}} /-
+    
+    {% endfor %}
+  </ul>
+
+{% else %}
+  <h2>NO CATEGORIES</h2>
+{% endif %}
